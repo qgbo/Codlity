@@ -1,0 +1,13 @@
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.exe
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.deps.json
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.runtimeconfig.json
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.runtimeconfig.dev.json
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.dll
+D:\Work\Test\codeLity\bin\Debug\netcoreapp3.1\codeLity.pdb
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.csprojAssemblyReference.cache
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.AssemblyInfoInputs.cache
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.AssemblyInfo.cs
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.csproj.CoreCompileInputs.cache
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.dll
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.pdb
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.genruntimeconfig.cache
