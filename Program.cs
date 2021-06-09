@@ -22,8 +22,11 @@ namespace codeLity
 
             //Dominator.Solution.Test();
             //EquiLeader.Solution.Test();
-            Triangle.Solution.Test();
-         
+            // Triangle.Solution.Test();
+
+            //MaxProductOfThree.Solution.Test();
+
+            FrogRiverOne.Solution.Test();
             Console.ReadLine();
 
         }

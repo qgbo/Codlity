@@ -2,45 +2,50 @@
 using System.Collections;
 using System.Linq;
 
-namespace EquiLeader
+namespace MaxProductOfThree
 {
     class Solution
     {
-
-        public static int solution(int[] A)
+        public int solution(int[] A)
         {
-          
+            if (A.Length == 3)
+                return A[0] * A[1] * A[2];
 
-            if (A.Length == 1)
-                return 0;
+            var data= A.OrderBy(t => t).ToArray();
 
-            var a = A.GroupBy(t => t).FirstOrDefault(t => t.Count() > A.Length / 2);
-            if (a==null)
-                return 0;
 
-            var result = 0;
-            var all=a.Count();
-            var c = 0;
-            for (int i = 0; i < A.Length; i++)
+            if (data[0] >= 0 || data[data.Length - 1] <= 0)
             {
-                if (A[i] == a.Key)
-                    c++;
-
-                if ((c > (i + 1) / 2) && (all - c) > (A.Length - i-1)  / 2)
-                    result++;
-
+                return data[data.Length - 3] * data[data.Length - 2] * data[data.Length - 1];
             }
 
-            return result;
+            if (data.Count(t => t > 0) == 1 || data.Count(t => t > 0) == 2)
+            {
+                return data[0] * data[1] * data[data.Length - 1];
+            }
+            else
+            {
+                var s=  data[data.Length - 3] * data[data.Length - 2] * data[data.Length - 1];
+                var t= data[0] * data[1] * data[data.Length - 1];
+
+                return s > t ? s : t;
+            }
         }
 
         public static void Test()
         {
-            var s = solution(new int[] {4, 3, 4, 4, 4, 2} );
+            var s = new Solution().solution(new int[] {-3, 1, 2, -2, 5, 6} );
             Console.WriteLine(s);
 
 
+             s = new Solution().solution(new int[] {  5, 6,4,7,12 });
+            Console.WriteLine(s);
 
+            s = new Solution().solution(new int[] { 5, -6, -4, 7, 12,-34 });
+            Console.WriteLine(s);
+
+            s = new Solution().solution(new int[] { 5, -6, -4, -7, -12, -34 });
+            Console.WriteLine(s);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Triangle
             if (A.Length <= 2)
                 return 0;
 
-            var order = A.OrderBy(t => t).ToArray(); ;
+            var order = A.OrderBy(t => t).Select(t=>(long)t).ToArray();
 
 
             for (int i = 0; i < A.Length-2; i++)
