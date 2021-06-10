@@ -25,8 +25,8 @@ namespace codeLity
             // Triangle.Solution.Test();
 
             //MaxProductOfThree.Solution.Test();
-
-            FrogRiverOne.Solution.Test();
+            PermCheck.Solution.Test();
+           // FrogRiverOne.Solution.Test();
             Console.ReadLine();
 
         }

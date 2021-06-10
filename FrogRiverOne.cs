@@ -13,16 +13,18 @@ namespace FrogRiverOne
     // you can write to stdout for debugging purposes, e.g.
     // Console.WriteLine("this is a debug message");
 
+    // 解决完了很简单。
+    // 怎么在循环中避免遍历集合，是性能瓶颈
     class Solution
     {
         public int solution(int X, int[] A)
         {
             var data = new List<bool>(X);
-            for (int i = 1; i < X+1; i++)
+            for (int i = 0; i < X; i++)
             {
                 data.Add(false);
             }
-
+            
             var r = 0;
             for (int i = 0; i < A.Length; i++)
             {
@@ -30,7 +32,7 @@ namespace FrogRiverOne
                 {
                     r++;
                     data[A[i]-1] = true;
-                    if (r==X)
+                    if (r==X)  // 这个判断很关键。 用这个就不用访问集合
                         return i;
                 }
             }
