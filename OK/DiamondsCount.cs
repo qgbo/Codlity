@@ -97,14 +97,56 @@ namespace DiamondsCount
 			}
 
 
+			var result = 0;
+
+			for (int i0 = 0; i0 < points.Count; i0++)
+			{
+				var p0 = points[i0];
+				for (int i1 = i0 + 1; i1 < points.Count; i1++)
+				{
+					var p1 = points[i1];
+					if (p1.x == p0.x && Math.Abs(p1.y - p0.y) % 2 == 0)
+					{
+						for (int i2 = i1 + 1; i2 < points.Count; i2++)
+						{
+							var p2 = points[i2];
+							if (2 * p2.y == p0.y + p1.y)
+								for (int i3 = i2 + 1; i3 < points.Count; i3++)
+								{
+									var p3 = points[i3];
+									if ((p3.y == p2.y) && (p3.x + p2.x == 2 * p1.x))
+										result++;
+								}
+						}
+					}
+
+					if (p1.y == p0.y &&  Math.Abs(p1.x - p0.x) % 2 == 0)
+					{
+						for (int i2 = i1 + 1; i2 < points.Count; i2++)
+						{
+							var p2 = points[i2];
+							if (2 * p2.x == p0.x + p1.x)
+								for (int i3 = i2 + 1; i3 < points.Count; i3++)
+								{
+									var p3 = points[i3];
+									if ((p3.x == p2.x) && (p3.y + p2.y == 2 * p1.y))
+										result++;
+								}
+						}
+					}
+				}
+			}
+
+			Console.WriteLine(result);
+
 			foreach (var p0 in points)
 			{
-				foreach (var p1 in points.Where(p1 => p1.x == p0.x && p1.i != p0.i))
+				foreach (var p1 in points.Where(p1 => p1.x == p0.x && p1.i != p0.i && Math.Abs(p1.y - p0.y) % 2 == 0))
 				{
-					foreach (var p2 in points.Where(p2 => 2 * p2.y == p0.y + p1.y && p2.i != p0.i && p2.i != p1.i))
+					foreach (var p2 in points.Where(p2 => 2 * p2.y == p0.y + p1.y))
 					{
 						var p3 = points.FirstOrDefault(pp3 => (pp3.y == p2.y) && (pp3.x + p2.x == 2 * p1.x)
-														&& pp3.i != p2.i && pp3.i != p1.i && pp3.i != p0.i);
+														&& pp3.i != p2.i);
 						if (p3 != null)
 						{
 							var p = new point4(p0.i, p1.i, p2.i, p3.i);
@@ -116,12 +158,12 @@ namespace DiamondsCount
 					}
 				}
 
-				foreach (var p1 in points.Where(p1 => p1.y == p0.y && p1.i != p0.i))
+				foreach (var p1 in points.Where(p1 => p1.y == p0.y && p1.i != p0.i && Math.Abs(p1.x - p0.x) % 2 == 0))
 				{
-					foreach (var p2 in points.Where(p2 => 2 * p2.x == p0.x + p1.x && p2.i != p0.i && p2.i != p1.i))
+					foreach (var p2 in points.Where(p2 => 2 * p2.x == p0.x + p1.x))
 					{
 						var p3 = points.FirstOrDefault(pp3 => (pp3.x == p2.x) && (pp3.y + p2.y == 2 * p1.y)
-													   && pp3.i != p2.i && pp3.i != p1.i && pp3.i != p0.i);
+													   && pp3.i != p2.i);
 						if (p3 != null)
 						{
 							var p = new point4(p0.i, p1.i, p2.i, p3.i);
