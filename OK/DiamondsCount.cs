@@ -20,108 +20,121 @@ namespace DiamondsCount
 		}
 	}
 
+	public class P3
+	{
+		public int i1;
+		public int i2;
+		public int not;
+		public bool line;
+
+		public P3(int i1, int i2, int not, bool line = false)
+		{
+			this.i1 = i1;
+			this.i2 = i2;
+			this.not = not;
+			this.line = line;
+		}
+	}
+
 	public class point4
 	{
 
+		public readonly int i0;
+		public readonly int i1;
+		public readonly int i2;
+		public readonly int i3;
 
-		public point4()
+
+		public point4(params int[] index)
 		{
+			var s = index.OrderBy(t => t).ToArray();
+			this.i0 = s[0];
+			this.i1 = s[1];
+			this.i2 = s[2];
+			this.i3 = s[3];
 		}
 
-		public bool isDemond(P[] points)
+		// override object.Equals
+		public override bool Equals(object obj)
 		{
-			P right = Singal(points, t => t.x == points.Max(m => m.x));
-			if (right == null)
+			//       
+			// See the full list of guidelines at
+			//   http://go.microsoft.com/fwlink/?LinkID=85237  
+			// and also the guidance for operator== at
+			//   http://go.microsoft.com/fwlink/?LinkId=85238
+			//
+
+			if (obj == null || GetType() != obj.GetType())
+			{
 				return false;
-
-			P left = Singal(points, t => t.x == points.Min(m => m.x));
-			if (left == null)
-				return false;
-
-			P up = Singal(points, t => t.y == points.Max(m => m.y));
-			if (up == null)
-				return false;
-
-			P down = Singal(points, t => t.y == points.Min(m => m.y));
-			if (down == null)
-				return false;
-
-
-			if (right.y != left.y || up.x != down.x)
-				return false;
-
-
-			if (right.x + left.x != 2 * up.x || up.y + down.y != 2 * left.y)
-				return false;
-
-			return true;
+			}
+			var p = obj as point4;
+			return p.i0 == i0 && p.i1 == i1 && p.i2 == i2 && p.i3 == i3;
+			// TODO: write your implementation of Equals() here
+			throw new NotImplementedException();
 		}
 
-
-
-
-
-		public static P Singal(P[] points, Func<P, bool> func)
+		// override object.GetHashCode
+		public override int GetHashCode()
 		{
-			var m = points.Max(func);
-			if (points.Count(func) != 1)
-				return null;
-
-			return points.Single(func);
+			// TODO: write your implementation of GetHashCode() here
+			throw new NotImplementedException();
+			return base.GetHashCode();
 		}
 	}
 	public class Solution
 	{
+
 		public int solution(int[] X, int[] Y)
 		{
+			var usedPoints = new List<point4>();
+
 			var points = new List<P>();
 			for (int i = 0; i < X.Length; i++)
 			{
 				if (!points.Any(t => t.x == X[i] && t.y == Y[i]))
-					points.Add(new P(X[i], Y[i], points.Count()));
+					points.Add(new P(X[i], Y[i], points.Count));
 			}
 
-			var result = 0;
 
-			for (int i0 = 0; i0 < points.Count; i0++)
+			foreach (var p0 in points)
 			{
-				for (int i1 = i0+1; i1 < points.Count; i1++)
+				foreach (var p1 in points.Where(p1 => p1.x == p0.x && p1.i != p0.i))
 				{
-					for (int i2 = i1 + 1; i2 < points.Count; i2++)
+					foreach (var p2 in points.Where(p2 => 2 * p2.y == p0.y + p1.y && p2.i != p0.i && p2.i != p1.i))
 					{
-						for (int i3 = i2 + 1; i3 < points.Count; i3++)
+						var p3 = points.FirstOrDefault(pp3 => (pp3.y == p2.y) && (pp3.x + p2.x == 2 * p1.x)
+														&& pp3.i != p2.i && pp3.i != p1.i && pp3.i != p0.i);
+						if (p3 != null)
 						{
-							Console.WriteLine(points[i0].x + "," + points[i0].y);
-							Console.WriteLine(points[i1].x + "," + points[i1].y);
-							Console.WriteLine(points[i2].x + "," + points[i2].y);
-							Console.WriteLine(points[i3].x + "," + points[i3].y);
-							Console.WriteLine($"{i0},{i1},{i2},{i3}");
-							var iss = JudgeDimond(new[] { points[i0], points[i1], points[i2], points[i3] });
-							if (iss)
+							var p = new point4(p0.i, p1.i, p2.i, p3.i);
+							if (!usedPoints.Any(t => t.i0 == p.i0 && t.i1 == p.i1 && t.i2 == p.i2 && t.i3 == p.i3))
 							{
-								result++;
+								usedPoints.Add(new point4(p0.i, p1.i, p2.i, p3.i));
+							}
+						}
+					}
+				}
 
+				foreach (var p1 in points.Where(p1 => p1.y == p0.y && p1.i != p0.i))
+				{
+					foreach (var p2 in points.Where(p2 => 2 * p2.x == p0.x + p1.x && p2.i != p0.i && p2.i != p1.i))
+					{
+						var p3 = points.FirstOrDefault(pp3 => (pp3.x == p2.x) && (pp3.y + p2.y == 2 * p1.y)
+													   && pp3.i != p2.i && pp3.i != p1.i && pp3.i != p0.i);
+						if (p3 != null)
+						{
+							var p = new point4(p0.i, p1.i, p2.i, p3.i);
+							if (!usedPoints.Any(t => t.i0 == p.i0 && t.i1 == p.i1 && t.i2 == p.i2 && t.i3 == p.i3))
+							{
+								usedPoints.Add(new point4(p0.i, p1.i, p2.i, p3.i));
 							}
 						}
 					}
 				}
 			}
-			return result;
-		}
 
-
-
-
-		public static bool JudgeDimond(P[] points)
-		{
-			point4 s = new point4();
-
-			if (!s.isDemond(points))
-			{
-				return false;
-			}
-
-			return true;
+			return usedPoints.Count;
 		}
 
 		public static void Test()
