@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace Min_positive_value
 {
+	public class P
+	{
+		public int m;
+		public int n;
+
+		public P(int x, int y)
+		{
+			this.m = x;
+			this.n = y;
+		}
+	}
+
 	class RectangleBuilderGreaterArea
 	{
+
 		public static int solution(int[] A, int X)
 		{
 			var result = 0;
-			var pp = new List<(int m, int n)>();
+			var pp = new List<P>();
 
 			for (int i = 0; i < A.Length; i++)
 			{
@@ -43,7 +56,7 @@ namespace Min_positive_value
 									{
 										Console.WriteLine($"{max},{min}");
 										result++;
-										pp.Add((max, min));
+										pp.Add(new P(max, min));
 										continue;
 									}
 								}
