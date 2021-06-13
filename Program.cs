@@ -28,8 +28,10 @@ namespace codeLity
             // PermCheck.Solution.Test();
             // FrogRiverOne.Solution.Test();
 
-            DiamondsCount_NoEfiency6.Solution.Test();
-           //  Test.Solution.Test();
+            //DiamondsCount_NoEfiency6.Solution.Test();
+            //  Test.Solution.Test();
+
+            MaxProfit.Solution.Test();
             Console.ReadLine();
 
         }
