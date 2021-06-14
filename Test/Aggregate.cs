@@ -16,7 +16,8 @@ namespace Test.Aggregate
         public int solution()
         {
             List<User> Users = new List<User> {
-                new User { Id = 1, Name = "张三" },
+                new User { Id = -1, Name = "张三" },
+                new User { Id = -1, Name = "张三" },
                 new User { Id = 2, Name = "李四" },
                 new User { Id = -3, Name = "李四" },
                 new User { Id = -2, Name = "李四" },
@@ -26,7 +27,7 @@ namespace Test.Aggregate
             };
 
             var sums = new List<int>();
-            var s = Users.Skip(1).Aggregate(1, (a, b) =>
+            var s = Users.Skip(1).Aggregate(Users[0].Id, (a, b) =>
             {
                 Console.WriteLine($"{a}={b.Id}");
                 if (a * b.Id<0)
