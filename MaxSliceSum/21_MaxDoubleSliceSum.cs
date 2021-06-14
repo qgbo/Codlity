@@ -77,11 +77,11 @@
             //s = new Solution().solution(new int[] { 3, 2, 6, 4,2,3 });
             //Console.WriteLine(s);
 
-            s = new Solution().solution(new int[] { 3, 2, 6,3,11, 4});
-            Console.WriteLine(s);
+            //s = new Solution().solution(new int[] { 3, 2, 6,3,11, 4});
+            //Console.WriteLine(s);
 
 
-            s = new Solution().solution(new int[] { 3, 2, -6, -1, 8, 9 });
+            s = new Solution().solution(new int[] { 3, 2, -6, -1, 8, 9,-4,3,12 });
             Console.WriteLine(s);
 
 

@@ -36,7 +36,9 @@ namespace codeLity
 
             //Test.Aggregate.Solution.Test();
 
-            MaxDoubleSliceSum.Solution.Test();
+            // MaxDoubleSliceSum2.Solution.Test();
+
+            CountFactors.Solution.Test();
             Console.ReadLine();
 
         }
