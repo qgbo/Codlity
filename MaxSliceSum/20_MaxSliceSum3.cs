@@ -41,24 +41,7 @@
 
             var data = A.ToList();
             data.RemoveAll(t => t == 0);
-            if (data.Last() > 0)
-                data.Add(-1);
-
             A = data.ToArray();
-
-            int k = 0;
-            var s = 0;
-            for (k = 0; k < A.Length - 1; k++)
-            {
-                s += A[k];
-
-                if ((A[k] < 0 && 0 < A[k + 1]) ||
-                    (A[k] > 0 && 0 > A[k + 1]))
-                {
-                    sums.Add(s);
-                    s = 0;
-                }
-            }
 
             var last = A.Skip(1).Aggregate(A[0], (a, b) =>
             {

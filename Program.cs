@@ -31,10 +31,12 @@ namespace codeLity
             //DiamondsCount_NoEfiency6.Solution.Test();
             //  Test.Solution.Test();
 
-         //   MaxProfit.Solution.Test();
-           // MaxSliceSum.Solution.Test();
+            //   MaxProfit.Solution.Test();
+            // MaxSliceSum.Solution.Test();
 
-            Test.Aggregate.Solution.Test();
+            //Test.Aggregate.Solution.Test();
+
+            MaxDoubleSliceSum.Solution.Test();
             Console.ReadLine();
 
         }

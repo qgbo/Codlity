@@ -23,28 +23,57 @@ namespace Test.Aggregate
                 new User { Id = -2, Name = "李四" },
                 new User { Id = 5, Name = "李四" },
                 new User { Id = 6, Name = "李四" },
+                 new User { Id = 2, Name = "李四" },
                 new User { Id = -4, Name = "李四" }
             };
 
             var sums = new List<int>();
-            var s = Users.Skip(1).Aggregate(Users[0].Id, (a, b) =>
-            {
-                Console.WriteLine($"{a}={b.Id}");
-                if (a * b.Id<0)
-                {
-                    sums.Add(a);
-                    Console.WriteLine($"{a},{b.Id}={b.Id}");
-                    return  b.Id;
-                }
-                else
-                {
-                    Console.WriteLine($"{a},{b.Id}={a + b.Id}");
-                    return a+b.Id;
-                }
+           
+            var s = Users.Aggregate(Users[0].Id,
+               (a, b) =>
+               {
+                   if (b.Id < 0)
+                   {
+                       if(a>0)
+                           sums.Add(a);
 
-            });
+                       sums.Add(b.Id);
+                       Console.WriteLine($"{a},{b.Id}={b.Id}");
+                       return 0;
+                   }
+                   else
+                   {
+                       Console.WriteLine($"{a},{b.Id}={a + b.Id}");
+                       return a + b.Id;
+                   }
+
+               },
+               a => a
+           );
 
             Console.WriteLine(s);
+
+            sums.Clear();
+            s = Users.Skip(1).Aggregate(Users[0].Id, 
+                (a, b) =>
+                {
+                    if (a * b.Id<0)
+                    {
+                        sums.Add(a);
+                        Console.WriteLine($"{a},{b.Id}={b.Id}");
+                        return  b.Id;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{a},{b.Id}={a + b.Id}");
+                        return a+b.Id;
+                    }
+
+                },
+                a=>  a
+            );
+
+            
 
 
             var invalidFileName = new char[] { '<', '>' };
