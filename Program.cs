@@ -38,7 +38,8 @@ namespace codeLity
 
             // MaxDoubleSliceSum2.Solution.Test();
 
-            CountFactors.Solution.Test();
+            //CountFactors.Solution.Test();
+            MinPerimeterRectangle.Solution.Test();
             Console.ReadLine();
 
         }
