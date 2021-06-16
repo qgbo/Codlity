@@ -19,7 +19,7 @@ namespace MinPerimeterRectangle
         public int solution(int N)
         {
             var q = (int)Math.Ceiling( Math.Sqrt(N));
-            int i = 0;
+            int i;
             for ( i = q; i >= 0; i--)
             {
                 if (N % i == 0)

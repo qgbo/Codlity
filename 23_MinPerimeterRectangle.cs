@@ -25,6 +25,23 @@ namespace CountFactors
             set.Add(N);
             for (int i = 2; i <= N / 2; i++)
             {
+                 if (N % i == 0)
+                {
+                    set.Add(i);
+                }
+
+            }
+            return set.Count;
+        }
+
+
+        public int solution2(int N)
+        {
+            HashSet<int> set = new HashSet<int>();
+            set.Add(1);
+            set.Add(N);
+            for (int i = 2; i <= N / 2; i++)
+            {
                 if (N % i == 0)
                 {
                     set.Add(i);
@@ -34,7 +51,6 @@ namespace CountFactors
 
             return set.Count;
         }
-
         public static void Test()
         {
             var s = new Solution().solution(24);
