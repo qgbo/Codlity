@@ -39,12 +39,43 @@ namespace codeLity
             // MaxDoubleSliceSum2.Solution.Test();
 
             //CountFactors.Solution.Test();
-          //  MinPerimeterRectangle.Solution.Test();
-            Semiprime.Solution.Test();
+            //  MinPerimeterRectangle.Solution.Test();
+            //  Semiprime.Solution.Test();
+
+            //ChocolatesByNumbers.Solution.Test();
+
+            // CommonPrimeDivisors.Solution.Test();
+          //  Test();
+         //   FibFrog.Solution.Test();
+
+            Ladder.Solution.Test();
             Console.ReadLine();
 
         }
 
+
+        public static void Test()
+        {
+            int[] data =  { 4, 4, 4, 1,2,3,4,5,6,7,8,9};
+      
+            var m= data.SkipWhile(t => t<5);
+
+            Console.WriteLine(string.Join(",,,",m));
+
+            int[] arr = { 20,24,44, 35,22, 55,34, };
+            Console.WriteLine("Initial array...");
+            foreach (int value in arr)
+            {
+                Console.WriteLine(value);
+            }
+            // skipping even elements
+            var res = arr.SkipWhile(ele => ele == 44);
+            Console.WriteLine("New array after skipping even elements..."+ string.Join(",", res));
+            foreach (int val in res)
+            {
+                Console.WriteLine(val);
+            }
+        }
         public static int solution(string S)
         {
             var s=S.Split(' ');
