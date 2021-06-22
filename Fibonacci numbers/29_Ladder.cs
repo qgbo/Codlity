@@ -18,6 +18,7 @@ namespace Ladder
             for (int i = 2; i < 200; i++)
             {
                 r[i] = r[i - 1] + r[i - 2];
+                Console.WriteLine(r[i]+"-----"+ r[i]/1000);
             }
             return r;
         }
