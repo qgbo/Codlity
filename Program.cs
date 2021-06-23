@@ -48,7 +48,8 @@ namespace codeLity
           //  Test();
          //   FibFrog.Solution.Test();
 
-            Ladder.Solution.Test();
+           // Ladder.Solution.Test();
+            AbsDistinct.Solution.Test();
             Console.ReadLine();
 
         }
