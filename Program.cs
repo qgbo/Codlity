@@ -49,7 +49,8 @@ namespace codeLity
          //   FibFrog.Solution.Test();
 
            // Ladder.Solution.Test();
-            AbsDistinct.Solution.Test();
+           // AbsDistinct.Solution.Test();
+            MinAbsSumOfTwo.Solution.Test();
             Console.ReadLine();
 
         }

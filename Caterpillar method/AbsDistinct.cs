@@ -8,7 +8,7 @@ namespace AbsDistinct
     {
         public int solution(int[] A)
         {
-            
+
             A = A.OrderBy(t => Math.Abs((long)t)).ToArray();
 
             var a = new List<long>() { Math.Abs((long)A[0]) };
@@ -24,7 +24,6 @@ namespace AbsDistinct
 
         public int solution2(int[] A)
         {
-
             var a = new List<long>();
             for (int i = 0; i < A.Length; i++)
             {
@@ -42,9 +41,8 @@ namespace AbsDistinct
             var s2 = new Solution().solution(new int[] { -5, -3, -1, 0, 3, 6 });
             Console.WriteLine(s2);
 
-        s2 = new Solution().solution(new int[] { -2147483648, 0 });
+            s2 = new Solution().solution(new int[] { -2147483648, 0 });
             Console.WriteLine(s2);
-            
         }
 
     }
