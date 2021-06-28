@@ -50,7 +50,12 @@ namespace codeLity
 
            // Ladder.Solution.Test();
            // AbsDistinct.Solution.Test();
-            MinAbsSumOfTwo.Solution.Test();
+          //  MinAbsSumOfTwo.Solution.Test();
+            //MaxNonoverlappingSegments.Solution.Test();
+
+          //  Dynamic.Triangle.Solution.Test();
+
+            LongestCommonSequence.Solution.Test();
             Console.ReadLine();
 
         }

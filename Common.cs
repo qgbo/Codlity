@@ -7,9 +7,9 @@ namespace System
 {
     public static class Common
     {
-        public static string Join(this int[] t)
+        public static string Join(this int[] t,string split=",")
         {
-           return  string.Join(',',t);
+           return  string.Join(split, t);
         }
     }
 }
