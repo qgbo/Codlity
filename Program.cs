@@ -55,7 +55,10 @@ namespace codeLity
 
           //  Dynamic.Triangle.Solution.Test();
 
-            LongestCommonSequence.Solution.Test();
+            //LongestCommonSequence.Solution.Test();
+            //FullPermutation.Solution.Test();
+
+            ConvertNnmber.Solution.Test();
             Console.ReadLine();
 
         }
