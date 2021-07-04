@@ -64,7 +64,8 @@ namespace codeLity
 
            // Xq.Solution.Test();
             // ForceRecursion.CoinsExample.Solution.Test();
-            One_area.Solution.Test();
+          //  One_area.Solution.Test();
+            ArgsProblem.Tests.ValidateArguments.Test();
             Console.ReadLine();
 
         }
