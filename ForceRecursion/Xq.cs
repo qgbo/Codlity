@@ -41,9 +41,6 @@ namespace Xq
             go(x + 2, y + 1, step) +
             go(x - 2, y - 1, step) +
             go(x + 2, y - 1, step);
-
-
-
         }
 
 

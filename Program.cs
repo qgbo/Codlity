@@ -63,7 +63,8 @@ namespace codeLity
            // FirstSecond.Solution.Test();
 
            // Xq.Solution.Test();
-            ForceRecursion.CoinsExample.Solution.Test();
+            // ForceRecursion.CoinsExample.Solution.Test();
+            One_area.Solution.Test();
             Console.ReadLine();
 
         }
