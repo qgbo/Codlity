@@ -58,7 +58,12 @@ namespace codeLity
             //LongestCommonSequence.Solution.Test();
             //FullPermutation.Solution.Test();
 
-            ConvertNnmber.Solution.Test();
+           // ConvertNnmber.Solution.Test();
+          //  Palindrome.Solution.Test();
+           // FirstSecond.Solution.Test();
+
+           // Xq.Solution.Test();
+            ForceRecursion.CoinsExample.Solution.Test();
             Console.ReadLine();
 
         }
