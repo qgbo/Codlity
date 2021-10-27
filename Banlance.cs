@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace BinaryGap
 {
-    class Banlance
+    class folder
     {
 
         public static bool solution(string A)

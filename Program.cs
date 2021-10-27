@@ -45,33 +45,62 @@ namespace codeLity
             //ChocolatesByNumbers.Solution.Test();
 
             // CommonPrimeDivisors.Solution.Test();
-          //  Test();
-         //   FibFrog.Solution.Test();
+            //  Test();
+            //   FibFrog.Solution.Test();
 
-           // Ladder.Solution.Test();
-           // AbsDistinct.Solution.Test();
-          //  MinAbsSumOfTwo.Solution.Test();
+            // Ladder.Solution.Test();
+            // AbsDistinct.Solution.Test();
+            //  MinAbsSumOfTwo.Solution.Test();
             //MaxNonoverlappingSegments.Solution.Test();
 
-          //  Dynamic.Triangle.Solution.Test();
+            //  Dynamic.Triangle.Solution.Test();
 
             //LongestCommonSequence.Solution.Test();
             //FullPermutation.Solution.Test();
 
-           // ConvertNnmber.Solution.Test();
-          //  Palindrome.Solution.Test();
-           // FirstSecond.Solution.Test();
+            // ConvertNnmber.Solution.Test();
+            //  Palindrome.Solution.Test();
+            // FirstSecond.Solution.Test();
 
-           // Xq.Solution.Test();
+            // Xq.Solution.Test();
             // ForceRecursion.CoinsExample.Solution.Test();
-          //  One_area.Solution.Test();
-            ArgsProblem.Tests.ValidateArguments.Test();
+            //  One_area.Solution.Test();
+            // ArgsProblem.Tests.ValidateArguments.Test();
+            //  Ran();
+            // BinaryGap.Folder_filecount.Test();
+            BinaryGap.Fib_queue.Test();
+            
             Console.ReadLine();
 
         }
 
+        public static void Ran()
+        {
+            Random randNum = new Random();
 
-        public static void Test()
+            int[] test3 = Enumerable.Repeat(0, 44)
+                             .Select(t => randNum.Next(10, 100))
+                             .ToArray();
+            Console.WriteLine(test3.Join());
+
+             test3 = Enumerable.Repeat(0, 44)
+                             .Select(t => randNum.Next(100, 1000))
+                             .ToArray();
+            Console.WriteLine(test3.Join());
+
+            test3 = Enumerable.Repeat(0, 44)
+                           .Select(t => randNum.Next(1000, 10000))
+                           .ToArray();
+            Console.WriteLine(test3.Join());
+
+            test3 = Enumerable.Repeat(0, 44)
+                          .Select(t => randNum.Next(10000, 100000))
+                          .ToArray();
+            Console.WriteLine(test3.Join());
+
+        }
+
+            public static void Test()
         {
             int[] data =  { 4, 4, 4, 1,2,3,4,5,6,7,8,9};
       

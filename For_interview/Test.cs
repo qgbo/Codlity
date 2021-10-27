@@ -20,8 +20,6 @@ namespace ArgsProblem.Tests
 
             var data = args.Select(t => t.ToLower()).ToList();
 
-           
-
 
             if (data.Contains("--name"))
             {
