@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sort
 {
@@ -6,19 +7,14 @@ namespace Sort
     {
         public static void solutionRecursion(int[] A, int start, int length)
         {
-            if (A.Length == 1)
+            if (length < 1)
             {
                 return;
             }
 
-            if (A.Length == 2)
+            if (length == 2)
             {
-                if (A[start] > A[start + 1])
-                {
-                    int m = A[start];
-                    A[start + 1] = A[start];
-                    A[start] = m;
-                }
+                Swap(A, start, start + 1);
                 return;
             }
 
@@ -26,33 +22,45 @@ namespace Sort
             solutionRecursion(A, start, half);
             solutionRecursion(A, half, half + length % 2);
 
-            while (start < )
+            while (start < half)
             {
                 for (int i = start; i < half; i++)
                 {
-                    if (A[i] > A[i + half])
-                    {
-                        int m = A[i];
-                        A[i + half] = A[i];
-                        A[i] = m;
-                    }
+                      Swap(A, i, i + half);
                 }
                 start++;
             }
 
+
         }
+        private static void Swap(int[] A, int i, int j)
+        {
+            if (A[i] > A[j])
+            {
+                int m = A[i];
+                A[i] = A[j];
+                A[i] = m;
+            }
+        }
+
 
         public static void Test()
         {
+            var a = new List<int>();
+            var answer = new List<int>();
+            Random rd = new Random();
+            for (int i = 0; i < 16; i++)
+            {
+                a.Add(rd.Next(0, 100));
+                answer.Add(a[i]);
+            }
+            var arr = a.ToArray();
 
-            var s = solution();
-            Console.WriteLine(s);
+            answer.Sort();
+            Console.WriteLine("anser:" + answer.ToArray().Join());
 
-            s = solution("((({}){)})");
-            Console.WriteLine(s);
-
-            s = solution("");
-            Console.WriteLine(s);
+            solutionRecursion(arr, 0, arr.Length);
+            Console.WriteLine(arr.Join());
 
 
         }

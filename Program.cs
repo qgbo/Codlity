@@ -69,7 +69,8 @@ namespace codeLity
             //  Ran();
             // BinaryGap.Folder_filecount.Test();
            // BinaryGap.Fib_queue.Test();
-            BinaryGap.Anagram.Test();
+           // BinaryGap.Anagram.Test();
+            Sort.MergeSort.Test();
             Console.ReadLine();
 
         }
