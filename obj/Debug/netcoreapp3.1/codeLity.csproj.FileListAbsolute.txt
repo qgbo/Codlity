@@ -11,3 +11,4 @@ D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.dll
 D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.pdb
 D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.genruntimeconfig.cache
 D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.csproj.AssemblyReference.cache
+D:\Work\Test\codeLity\obj\Debug\netcoreapp3.1\codeLity.GeneratedMSBuildEditorConfig.editorconfig

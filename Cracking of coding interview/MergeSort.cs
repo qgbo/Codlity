@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace Sort
@@ -22,30 +23,52 @@ namespace Sort
             solutionRecursion(A, start, half);
             solutionRecursion(A, half, half + length % 2);
 
-            while (start < half)
+            Merge(A, start, half, length);
+        }
+
+        private static void Merge(int[] A, int start, int half, int length)
+        {
+            var a = new List<int>();
+            var s = start;
+
+            for (int i = 0; i < length; i++)
             {
-                for (int i = start; i < half; i++)
+                if (A[start] > A[half + 1] && half != s + length)
                 {
-                      Swap(A, i, i + half);
+                    a.Add(A[half + 1]);
+                    half++;
                 }
-                start++;
+                else
+                {
+                    a.Add(A[start]);
+                    start++;
+                }
             }
 
-
+            for (int i = 0; i < length; i++)
+            {
+                A[s+i] = a[i];
+            }
+            
         }
+
+     
+
         private static void Swap(int[] A, int i, int j)
         {
+            
             if (A[i] > A[j])
             {
                 int m = A[i];
                 A[i] = A[j];
-                A[i] = m;
+                A[j] = m;
             }
         }
 
 
         public static void Test()
         {
+           
             var a = new List<int>();
             var answer = new List<int>();
             Random rd = new Random();
@@ -54,13 +77,16 @@ namespace Sort
                 a.Add(rd.Next(0, 100));
                 answer.Add(a[i]);
             }
-            var arr = a.ToArray();
 
-            answer.Sort();
-            Console.WriteLine("anser:" + answer.ToArray().Join());
+ answer.Sort();
 
+            Console.WriteLine();
+
+
+            Console.WriteLine("anser5:" + answer.ToArray().Join());
+            var arr = answer.ToArray();
             solutionRecursion(arr, 0, arr.Length);
-            Console.WriteLine(arr.Join());
+            Console.WriteLine("====="+arr.Join());
 
 
         }

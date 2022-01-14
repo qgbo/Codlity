@@ -70,7 +70,11 @@ namespace codeLity
             // BinaryGap.Folder_filecount.Test();
            // BinaryGap.Fib_queue.Test();
            // BinaryGap.Anagram.Test();
-            Sort.MergeSort.Test();
+           // Sort.MergeSort.Test();
+
+           // TapeEquilibrium.Solution.Test();
+           // PermCheck.Solution.Test();
+            MaxCounters.Solution.Test();
             Console.ReadLine();
 
         }
