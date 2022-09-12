@@ -1,0 +1,71 @@
+using System;
+// you can also use other imports, for example:
+using System.Collections.Generic;
+using System.Linq;
+// you can write to stdout for debugging purposes, e.g.
+// Console.WriteLine("this is a debug message");
+
+struct Point{
+  public  int X;
+  public  int Y;
+}
+
+class Solution {
+    public int solution(int[] X, int[] Y) {
+
+        int result =0;
+
+        Dictionary<int,HashSet<int>> dic = new Dictionary<int,HashSet<int>>();
+
+        Dictionary<int,HashSet<int>> dic2 = new Dictionary<int,HashSet<int>>();
+        // write your code in C# 6.0 with .NET 4.5 (Mono)
+
+         Point[] points = new Point[X.Length];
+         for (int i = 0; i < X.Length; i++)
+         {
+                points[i]= new Point(){X=X[i],Y=Y[i]};
+                if(dic.ContainsKey(X[i]))
+                {
+                    dic[X[i]].Add(Y[i]);
+                }
+                else
+                {
+                    dic.Add(X[i], new HashSet<int>(new int[]{Y[i]}));
+                }
+
+                if(dic2.ContainsKey(Y[i]))
+                {
+                    dic2[Y[i]].Add(X[i]);
+                }
+                else
+                {
+                    dic2.Add(Y[i], new HashSet<int>(new int[]{X[i]}));
+                }
+                    
+         }
+
+         points = points.OrderBy(t=>t.X).ThenBy(t=>t.Y).ToArray(); 
+
+
+
+         for (int i = 0; i < points.Length-3; i++)
+            {
+               for (int j = i+1; j < points.Length-2; j++)
+                {
+                    if(points[i].Y<=points[j].Y)
+                            continue; 
+
+                    if(dic[points[j].X].Contains(points[i].Y*2 - points[j].Y))
+                    { 
+                        if(dic2[points[i].Y].Contains(points[j].X *2 - points[i].X))
+                        {
+                            result++;
+                        }
+                    }
+                    
+                }
+            }
+
+       return result;
+    }
+}
