@@ -31,23 +31,20 @@ class Solution {
             {
                for (int j = i+1; j < points.Length-2; j++)
                 {
-                    if(points[i].X==points[j].X)
-                           continue;  
-
                     if(points[i].Y<=points[j].Y)
                             continue; 
 
                     var p3 = new Point(){X = points[j].X, Y = points[i].Y*2 - points[j].Y };        
                    
-
                     if(dic.Contains(p3))
                     {
-                        var p4 = new Point(){X = points[j].X *2 -points[i].X, Y = points[i].Y };  
+                        var p4 = new Point(){X = points[j].X *2 - points[i].X, Y = points[i].Y };  
                         if(dic.Contains(p4))
                         {
                             result++;
                         }
                     }
+                    
                 }
             }
 
