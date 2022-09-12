@@ -16,7 +16,7 @@ class Solution {
 
         int result =0;
 
-        bool ok = false;
+     
         // write your code in C# 6.0 with .NET 4.5 (Mono)
 
          List<Point> points = new List<Point>();
@@ -32,47 +32,43 @@ class Solution {
 
                for (int j = i+1; j < points.Count; j++)
                 {
-                     if(ok)
-                           break;
-                           
                     if(points[i].X==points[j].X)
                            continue;  
 
-                    if(points[i].Y<=points[j].Y)
-                           break;                     
-                                           
-                    for (int k = j+1; k < points.Count; k++)
+                    if(points[i].Y > points[j].Y)     
                     {
-                        if(ok)
-                           break;
-                        if(points[k].X!=points[j].X)
-                            break;   
-
-                        if(points[i].Y >= points[k].Y)
-                        continue;
-
-                        if(points[k].Y + points[j].Y > points[i].Y*2)
-                            break;       
-
-                        if(points[k].Y + points[j].Y == points[i].Y*2)
+                        for (int k = j+1; k < points.Count; k++)
                         {
-                            for (int m = k+1; m < points.Count; m++)
-                            {
-                                if(points[m].Y == points[i].Y && (points[m].X + points[i].X==points[k].X*2))
-                                {
-                                    ok = false;
-                                    result++;
-                                    break;
-                                }
+                            if(points[k].X!=points[j].X)
+                                break;
 
-                                if(points[m].Y > points[i].Y && (points[m].X > points[i].X))
+                            if(points[i].Y >= points[k].Y)
+                               continue;
+
+                            if(points[k].Y + points[j].Y > points[i].Y*2)
+                                break;       
+
+                            if(points[k].Y + points[j].Y == points[i].Y*2)
+                            {
+                                for (int m = k+1; m < points.Count; m++)
                                 {
-                                    ok = false;
-                                    break;
-                                }
-                            } 
+                                    if(points[m].Y == points[i].Y && (points[m].X + points[i].X==points[k].X*2))
+                                    {
+                                        result++;
+                                        break;
+                                    }
+
+                                    if(points[m].Y > points[i].Y && (points[m].X > points[i].X))
+                                    {
+                                        break;
+                                    }
+                                } 
+                            }
                         }
                     }
+
+                     if(points[i].Y<=points[j].Y)
+                           break; 
                 }
             }
 
