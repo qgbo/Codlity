@@ -1,0 +1,64 @@
+using System;
+// you can also use other imports, for example:
+using System.Collections.Generic;
+using System.Linq;
+// you can write to stdout for debugging purposes, e.g.
+// Console.WriteLine("this is a debug message");
+
+struct Point{
+  public  int X;
+  public  int Y;
+}
+
+class Solution {
+    public int solution(int[] X, int[] Y) {
+
+        int result =0;
+
+        HashSet<Point> dic = new HashSet<Point>();
+        // write your code in C# 6.0 with .NET 4.5 (Mono)
+
+         Point[] points = new Point[X.Length];
+         for (int i = 0; i < X.Length; i++)
+         {
+                points[i]= new Point(){X=X[i],Y=Y[i]};
+                dic.Add(points[i]);
+         }
+
+         points = points.OrderBy(t=>t.X).ThenBy(t=>t.Y).ToArray(); 
+
+         var mm = points.GroupBy(t => t.X).OrderBy(t=>t.Key).ToArray();
+
+
+            for (int i = 0; i < mm.Length; i++)
+            {
+                for (int left = 0; left < mm[i].Count(); left++)
+                { 
+                    for (int j = i+1; j < mm.Length; j++)
+                    {
+                        for (int down = 0; down < mm[j].Count(); down++)
+                        {
+                            var leftpoint=mm[i].ElementAt(left);
+                            var downpoint=mm[j].ElementAt(down);
+
+                            if (leftpoint.Y <= downpoint.Y)
+                                continue;
+
+                            var p3 = new Point() { X = downpoint.X, Y = leftpoint.Y * 2 - downpoint.Y };
+
+                            if (dic.Contains(p3))
+                            {
+                                var p4 = new Point() { X = downpoint.X * 2 - leftpoint.X, Y = leftpoint.Y };
+                                if (dic.Contains(p4))
+                                {
+                                    result++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+          
+       return result;
+    }
+}
