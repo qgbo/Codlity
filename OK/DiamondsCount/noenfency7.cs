@@ -9,7 +9,6 @@ class Point{
 
   public  int X;
   public  int Y;
-  bool enable = true;
 }
 
 class Solution {
@@ -39,6 +38,9 @@ class Solution {
                for (int j = i+1; j < points.Count; j++)
                 {
                     if(points[i].X==points[j].X)
+                           continue;  
+
+                    if(points[i].Y==points[j].Y)
                            continue;                     
                                            
                     for (int k = j+1; k < points.Count; k++)
@@ -46,15 +48,15 @@ class Solution {
                              if(points[k].X!=points[j].X)
                                   continue;   
 
+                             if(points[i].Y==points[k].Y)
+                                continue; 
+
                              if(points[k].Y + points[j].Y != points[i].Y*2)
                                   continue;  
 
-                             for (int m = j+1; m < points.Count; m++)
+                             for (int m = k+1; m < points.Count; m++)
                              {
-                                if(points[m].Y != points[i].Y)
-                                    continue;
-
-                                if(points[m].X + points[i].X==points[k].X*2)
+                                if(points[m].Y == points[i].Y && (points[m].X + points[i].X==points[k].X*2))
                                     result++;
 
                              } 
