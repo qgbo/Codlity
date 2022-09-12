@@ -22,9 +22,9 @@ class Solution {
 
          Point[] points = new Point[X.Length];
          for (int i = 0; i < X.Length; i++)
-            {
+         {
                 points[i]= new Point(){X=X[i],Y=Y[i]};
-            }
+         }
 
          points = points.OrderBy(t=>t.X).ThenBy(t=>t.Y).ToArray(); 
 
@@ -32,21 +32,19 @@ class Solution {
             {
                for (int j = i+1; j < points.Length-2; j++)
                 {
-                   
-
                     if(points[i].X==points[j].X)
                            continue;  
+
 
                     if(points[i].Y > points[j].Y)     
                     {
                         for (int k = j+1; k < points.Length-1; k++)
                         {
-                            if(points[k].X!=points[j].X) ////////////
+                            if(points[k].X!=points[j].X || (points[k].Y + points[j].Y > points[i].Y*2)) ////////////
                             {
                                 break2 = true;
                                 break;
-                            }
-                                
+                            }  
 
                             if(points[i].Y >= points[k].Y)
                                 continue;   
@@ -58,18 +56,17 @@ class Solution {
                                     if(points[m].Y == points[i].Y && (points[m].X + points[i].X==points[k].X*2))
                                     {
                                         result++;
+                                        break2 = true;
                                         break;
                                     }
 
                                     if(points[m].Y >= points[i].Y && (points[m].X + points[i].X > points[k].X*2))
                                     {
+                                        break2 = true;
                                         break;
                                     }
                                 } 
                             }
-
-                             if(points[k].Y + points[j].Y > points[i].Y*2)
-                                break;
                         }
 
                         if(break2)
