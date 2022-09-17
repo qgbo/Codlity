@@ -27,3 +27,25 @@ class Solution {
         return str.ToString();
     }
 }
+
+
+string solution2(string S)
+{
+    // write your code in C# 6.0 with .NET 4.5 (Mono)
+
+    if(S.Length==0)
+        return S;
+
+    var stack = new Stack<char>();
+    stack.Push(S[0]);
+
+    for (int i = 1; i < S.Length; i++)
+    {
+        if (stack.Any() && stack.Peek() == S[i])
+            stack.Pop();
+        else
+            stack.Push(S[i]);
+    }
+
+    return string.Concat(stack.Reverse());
+}
